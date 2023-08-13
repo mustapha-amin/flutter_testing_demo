@@ -37,6 +37,7 @@ class _HomeState extends State<Home> {
           : Padding(
               padding: const EdgeInsets.symmetric(horizontal: 5, vertical: 10),
               child: ListView.builder(
+                physics: const BouncingScrollPhysics(),
                 itemCount: newsProvider.articles.length,
                 itemBuilder: (context, index) {
                   Article article = newsProvider.articles[index];

@@ -9,7 +9,10 @@ void main() {
     debugShowCheckedModeBanner: false,
     theme: ThemeData(
       useMaterial3: true,
-      colorScheme: ColorScheme.fromSeed(seedColor: Colors.green),
+      colorScheme: ColorScheme.fromSeed(
+        brightness: Brightness.dark,
+        seedColor: Colors.deepOrange,
+      ),
     ),
     home: ChangeNotifierProvider(
       create: (_) => ArticlesProvider(
