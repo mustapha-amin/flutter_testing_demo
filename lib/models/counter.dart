@@ -2,8 +2,6 @@ class Counter {
   int count = 0;
   String remark = '';
 
-
-
   void increment() => count++;
 
   void decrement() => count--;
