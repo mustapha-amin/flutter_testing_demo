@@ -11,6 +11,6 @@ void main() {
   test("Test the counter", () async {
     counter.increment();
     counter.increment();
-    expect(2, counter.count);
+    expect(counter.count, 2);
   });
 }
