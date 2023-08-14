@@ -8,9 +8,11 @@ void main() {
     counter = Counter();
   });
 
-  test("Test the counter", () async {
+  test("Test the counter and remark", () async {
     counter.increment();
     counter.increment();
+    counter.setRemark();
+    expect(counter.remark, '2 counts');
     expect(counter.count, 2);
   });
 }
