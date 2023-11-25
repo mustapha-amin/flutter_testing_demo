@@ -16,7 +16,7 @@ void main() {
     articlesProvider = ArticlesProvider(newsService: mockNewsService);
   });
 
-  group("getArticles", () {
+  group("getArticles\n", () {
 
     final articlesFromService = List.generate(
       3,
