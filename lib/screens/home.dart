@@ -42,12 +42,16 @@ class _HomeState extends State<Home> {
                 itemBuilder: (context, index) {
                   Article article = newsProvider.articles[index];
                   return GestureDetector(
+                    key: Key("card $index"),  
                     onTap: () {
                       Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) =>
-                                  NewsDetailPage(article: article)));
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => NewsDetailPage(
+                            article: article,
+                          ),
+                        ),
+                      );
                     },
                     child: Card(
                       child: Padding(
