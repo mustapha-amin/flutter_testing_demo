@@ -57,7 +57,7 @@ void main() {
 
   group("Couple of widget tests\n", () {
     testWidgets(
-      "Appbar title is diplayed",
+      "Appbar title is displayed",
       (WidgetTester widgetTester) async {
         setupNewsServiceReturns3Articles();
         await widgetTester.pumpWidget(createWidgetUnderTest());
@@ -77,5 +77,33 @@ void main() {
         await widgetTester.pumpAndSettle();
       },
     );
+
+    testWidgets(
+      "Articles are displayed after some time",
+      (WidgetTester widgetTester) async {
+        setupNewsServiceReturns3Articles();
+
+        await widgetTester.pumpWidget(createWidgetUnderTest());
+        await widgetTester.pump();
+
+        expect(find.byType(ListView), findsOneWidget);
+
+        for (final article in articlesFromService) {
+          expect(find.text(article.title), findsOneWidget);
+          expect(find.text(article.title), findsOneWidget);
+        }
+      },
+    );
+
+    testWidgets("News details displayed on the next page",
+        (widgetTester) async {
+      setupNewsServiceReturns3Articles();
+      await widgetTester.pumpWidget(createWidgetUnderTest());
+      await widgetTester.pump();
+      await widgetTester.tap(find.byKey(const Key("card 0")));
+      await widgetTester.pump();
+      expect(find.text(articlesFromService[0].title), findsOneWidget);
+      expect(find.text(articlesFromService[0].content), findsOneWidget);
+    });
   });
 }
