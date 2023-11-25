@@ -4,10 +4,18 @@ class Counter {
 
   void increment() => count++;
 
-  void decrement() => count--;
+  void decrement() => count > 0 ? count-- : throw CounterException;
 
-  String setRemark() {
+  void setRemark() {
     remark = count == 1 ? '$count count' : '$count counts';
-    return remark;
+  }
+}
+
+class CounterException implements Exception {
+  const CounterException();
+
+  @override
+  toString() {
+    return "Can't go beyond zero";
   }
 }
