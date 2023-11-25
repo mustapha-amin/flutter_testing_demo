@@ -1,6 +1,8 @@
 import 'package:flutter_test/flutter_test.dart';
 import 'package:flutter_testing_demo/models/counter.dart';
 
+
+
 void main() {
   late Counter counter;
 
@@ -8,7 +10,9 @@ void main() {
     counter = Counter();
   });
 
-  test("Test the counter and remark", () async {
+  test("Test the counter and remark", () {
+    expect(counter.count, 0);
+    expect(counter.remark, '');
     counter.increment();
     counter.increment();
     counter.setRemark();
